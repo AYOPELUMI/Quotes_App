@@ -32,6 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
     if(isValid!){
       setState(()=>errorText = " ");
       _authController.login();
+      if (_authController.user.value != null) {
+        //  Get.toNamed('/home');
+
+       }
     //    _formKey.currentState?.save();
     //  Get.toNamed(Routes.homeScreenRoute);
       return;
@@ -118,7 +122,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     }
                   ),
-            
+                Text(
+                  _authController.errorMessage.value,
+                  style: TextStyle(color: Colors.red),
+                ),
                   const SizedBox(height: 35),
                   ElevatedButton(
                     onPressed: (){_submit();},
@@ -149,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
                         ),
-                        child: const Text("Google",
+                        child: const Text("Sign up",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,

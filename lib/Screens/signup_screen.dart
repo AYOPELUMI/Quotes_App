@@ -32,6 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
     if(isValid!){
       setState(()=>errorText = " ");
       _authController.register();
+      if (_authController.user.value != null) {
+        //  Get.toNamed('/home');
+
+       }
     //    _formKey.currentState?.save();
     //  Get.toNamed(Routes.homeScreenRoute);
       return;
@@ -112,15 +116,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     validator:(value){
-                      if(value!.isEmpty || value.length <6){
+                      if(value!.isEmpty || !RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%*&_-])[A-Za-z\d!@#$%*&_-]{8,24}$').hasMatch(value)){
                         return "Password must be at least 6 characters";
                       }
                       return null;
                     }
                   ),
-            
-                  const SizedBox(height: 35),
-                  ElevatedButton(
+                Text(
+                  _authController.errorMessage.value,
+                  style: TextStyle(color: Colors.red),
+                ),
+                const SizedBox(height: 35),
+                ElevatedButton(
                     onPressed: (){_submit();},
                      style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF6C63FF),
@@ -130,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: Alignment.center,
                         padding:  const EdgeInsets.all(15)
                       ),
-                      child: const Text("Login",
+                      child: const Text("Sign up",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
