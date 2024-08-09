@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quote_app/Routes/routes.dart';
 
 import 'Bindings/bindings.dart';
 import 'Screens/login_screen.dart';
+import 'Screens/signup_screen.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: MyBindings(),
-      home: LoginScreen(),
+      home: const LoginScreen(),
       getPages: [
-        GetPage(name: '/', page: () => LoginScreen()),
-        // GetPage(name: '/home', page: () => HomeScreen()),
-        // GetPage(name: '/profile', page: () => ProfileScreen()),
+        GetPage(name: Routes.loginScreenRoute, page: () => const LoginScreen()),
+        // GetPage(name: Routes.homeScreenRoute, page: () => HomeScreen()),
+        GetPage(name: Routes.signupScreenRoute, page: () => SignupScreen()),
       ],
     );
   }

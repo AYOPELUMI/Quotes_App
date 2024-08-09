@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Controllers/auth_controller.dart';
+import '../Routes/routes.dart';
 // import '../routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -146,12 +147,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 25),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () { Get.toNamed(Routes.signupScreenRoute);},
                         style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.grey)
                             )
                           ),
                           backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
