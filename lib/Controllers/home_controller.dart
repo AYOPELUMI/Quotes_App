@@ -10,7 +10,7 @@ class HomeController extends GetxController {
   var isLoading = true.obs;
  var isError = false.obs; // Optional: Track if there's an error
   var selectedIndex = 0.obs;
-  final int timeoutDuration =120;
+  final int timeoutDuration =20;
   Future<void> changeTab(int index) async {
     selectedIndex.value = index;
     update();

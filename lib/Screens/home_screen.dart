@@ -4,12 +4,13 @@ import 'package:get/get.dart';
 import 'package:quote_app/Controllers/home_controller.dart';
 
 import 'quote_screen.dart';
+import 'search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Widget> _pages = [
     // Replace with your actual pages
     QuoteScreen(),
-    Center(child: Text('Search Page')),
+    SearchScreen(),
     Center(child: Text('Profile Page')),
   ];
 
