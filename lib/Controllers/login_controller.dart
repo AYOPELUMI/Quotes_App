@@ -29,10 +29,10 @@ class LoginController extends GetxController {
         fontSize: 16.0,);
         errorMessage.value="";
         isLoading.value = false;
-        emailController.text="";
-        passwordController.text="";
+        emailController.clear();
+        passwordController.clear();
 
-    Future.delayed(Duration(seconds:2), (){
+    Future.delayed(Duration(seconds:1), (){
      Get.toNamed(Routes.homeScreenRoute);
     },);
     }

@@ -10,16 +10,17 @@ class QuoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
-      margin: EdgeInsets.all(8.0),
+
+      elevation: 8,
+      margin: EdgeInsets.symmetric(horizontal:34.0, vertical:14),
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               quote,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               textAlign: TextAlign.left,
             ),
             if (author.isNotEmpty) ...[

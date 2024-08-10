@@ -27,21 +27,12 @@ class _SignupScreenState extends State<SignupScreen> {
    bool isSwitchedValidated = true;
   String errorText = " ";
 
-  void _submit () async{
+  void _submit () {
     final isValid = _formKey.currentState?.validate();
 
     if(isValid!){
-      setState(()=>errorText = " ");
+      setState(()=>errorText = "");
       _SignupController.register();
-      print(" response are ${_SignupController.user.value}");
-      if (_SignupController.user.value != null) {
-        //  Get.toNamed('/home');
-            Future.delayed(Duration(seconds:2), (){
-     Get.offAndToNamed(Routes.loginScreenRoute);
-    },);
-
-       }
-    //    _formKey.currentState?.save();
       return;
     }
     }
@@ -54,7 +45,7 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: Colors.white,
       body:  Form(
         key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.disabled,
         child: GetBuilder<SignupController>(
           init: Get.find<SignupController>(),
           builder: (controller) => Container(

@@ -31,15 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
     final isValid = _formKey.currentState?.validate();
 
     if(isValid!){
-      setState(()=>errorText = " ");
+      setState(()=>errorText = "");
       _LoginController.login();
-      if (_LoginController.user.value != null) {
-        //  Get.toNamed('/home');
-            Future.delayed(Duration(seconds:3), (){
-     Get.toNamed(Routes.homeScreenRoute);
-    },);
 
-       }
      
 
     //    _formKey.currentState?.save();
@@ -55,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body:  Form(
         key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.disabled,
         child: GetBuilder<LoginController>(
           init: Get.find<LoginController>(),
           builder: (controller) => Container(

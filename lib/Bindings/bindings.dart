@@ -15,7 +15,7 @@ class MyBindings implements Bindings {
     Get.lazyPut(() => LoginController(), fenix:false);
     Get.lazyPut(() => SignupController());
     Get.lazyPut(() => QuoteService());
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => HomeController(), fenix: true);
     Get.lazyPut(() => Searchcontroller(), fenix: true);
     Get.lazyPut(() => ProfileController(), fenix: true);
 

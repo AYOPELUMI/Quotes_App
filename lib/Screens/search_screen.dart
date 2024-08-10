@@ -8,7 +8,9 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Search Quotes')),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('    Search Quotes')),
       body: GetBuilder<Searchcontroller>(
         init: Searchcontroller(),
         builder: (controller) {
@@ -17,7 +19,7 @@ class SearchScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  onChanged: (query) => controller.updateSearchQuery(query),
+                  onChanged: (query) => controller.searchQuotes(query),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Search',
@@ -26,15 +28,17 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child : controller.isError.value
-                        ? Center(child: Text('Error fetching quotes'))
-                        : controller.filteredQuotes.isEmpty
-                            ? Center(child: Text('No quotes found'))
-                            : ListView.builder(
-                                itemCount: controller.filteredQuotes.length,
+                child : 
+                      controller.searchText.value.isEmpty ?
+             Center(child: Text('Start typing to search quotes.'))
+
+          : controller.searchResults.isEmpty ?
+             Center(child: Text('No quotes found.'))
+          : ListView.builder(
+                                itemCount: controller.searchResults.length,
                                 itemBuilder: (context, index) {
-                                  var quote = controller.filteredQuotes[index]['quote'];
-                                  var author = controller.filteredQuotes[index]['author'] ?? 'Unknown'; // Handle missing author
+                                  var quote = controller.searchResults[index].text;
+                                  var author = controller.searchResults[index].author ?? 'Unknown'; // Handle missing author
                                   return QuoteCard(quote: quote, author: author);
                                 },
                               ),

@@ -29,9 +29,9 @@ class SignupController extends GetxController {
         fontSize: 16.0,);
         errorMessage.value="";
         isLoading.value = false;
-        emailController.text="";
-        passwordController.text="";
-        Future.delayed(Duration(seconds:2), (){
+        emailController.clear();
+        passwordController.clear();
+        Future.delayed(Duration(seconds:1), (){
      Get.offAndToNamed(Routes.loginScreenRoute);
     },);
       }

@@ -57,8 +57,9 @@ class _ProfileScreenState extends State<ProfileScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: Text('    Profile' ,style: TextStyle(color: Colors.white, fontSize: 26)),
         backgroundColor: Colors.deepPurple,
+        automaticallyImplyLeading: false,
       ),
       body: GetBuilder<ProfileController>(
         init: ProfileController(),
@@ -103,14 +104,14 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ),
                     ),
                     Positioned(
-                      top: 150,
-                      left: 16,
+                      top: 110,
+                      left: 44,
                       child: FadeTransition(
                         opacity: _fadeInAnimation!,
                         child: Text(
                           controller.user.value!.displayName ?? 'USER',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 17,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),

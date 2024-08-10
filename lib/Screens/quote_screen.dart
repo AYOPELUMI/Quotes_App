@@ -9,7 +9,9 @@ class QuoteScreen extends StatelessWidget {
  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Quotes')),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('    Quotes')),
       body: GetBuilder<HomeController>(
         init: HomeController(),
         builder: (controller) {
@@ -30,14 +32,14 @@ class QuoteScreen extends StatelessWidget {
               children:[
                 Text('Error fetching quotes'),
                 SizedBox(height:10),
-                ElevatedButton(onPressed:() => controller.retryFetch(), child: const Text("Try again"))]));
+                ElevatedButton(onPressed:() { controller.retryFetch();}, child: const Text("Try again"))]));
           }
 
           return ListView.builder(
             itemCount: controller.quotes.length,
             itemBuilder: (context, index) {
-              var quote = controller.quotes[index]['quote'];
-              var author = controller.quotes[index]['author'] ?? ''; // Optional: Adjust based on your data
+              var quote = controller.quotes[index].text;
+              var author = controller.quotes[index].author ?? " "; // Optional: Adjust based on your data
               return QuoteCard(
                 quote: quote,
                 author: author,

@@ -1,27 +1,27 @@
-// lib/controllers/search_controller.dart
+
 import 'package:get/get.dart';
 
+import '../Models/quote_model.dart';
+import 'home_controller.dart';
+
 class Searchcontroller extends GetxController {
-  var quotes = <dynamic>[].obs;
-  var filteredQuotes = <dynamic>[].obs;
-  var searchQuery = ''.obs;
-  var isLoading = true.obs;
-  var isError = false.obs;
+  var searchResults = <Quote>[].obs;
+  var searchText = ''.obs;
 
+  HomeController homeController = Get.find<HomeController>();
 
-  void updateQuotes(dynamic list){
-    filteredQuotes.value= list;
-    update();
-  }
-
-  void updateSearchQuery(String query) {
-    searchQuery.value = query;
+  void searchQuotes(String query) {
+    searchText.value = query;
     if (query.isEmpty) {
-      filteredQuotes.value = quotes;
+      searchResults.clear();
     } else {
-      filteredQuotes.value = quotes
-          .where((quote) => quote['quote'].toLowerCase().contains(query.toLowerCase()))
+      searchResults.value = homeController.quotes
+          .where((quote) =>
+              quote.text.toLowerCase().contains(query.toLowerCase()) ||
+              quote.author.toLowerCase().contains(query.toLowerCase()))
           .toList();
     }
+
+    update();
   }
 }
