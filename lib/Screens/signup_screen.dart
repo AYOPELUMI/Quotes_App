@@ -35,10 +35,10 @@ class _SignupScreenState extends State<SignupScreen> {
       _SignupController.register();
       if (_SignupController.user.value != null) {
         //  Get.toNamed('/home');
+     Get.offAndToNamed(Routes.loginScreenRoute);
 
        }
     //    _formKey.currentState?.save();
-    //  Get.toNamed(Routes.homeScreenRoute);
       return;
     }
     }
@@ -55,6 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
         child: GetBuilder<SignupController>(
           init: Get.find<SignupController>(),
           builder: (controller) => Container(
+            height:MediaQuery.of(context).size.height*0.8,
             color: Color(0xFFF3F3F3),
         padding: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0),
         child: Column(

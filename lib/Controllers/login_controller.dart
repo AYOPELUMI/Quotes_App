@@ -28,6 +28,8 @@ class LoginController extends GetxController {
         fontSize: 16.0,);
         errorMessage.value="";
         isLoading.value = false;
+        emailController.text="";
+        passwordController.text="";
     }
     catch (e) {
       errorMessage.value = e.toString();
