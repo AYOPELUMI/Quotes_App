@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quote_app/Controllers/home_controller.dart';
 
+import 'profile_screen.dart';
 import 'quote_screen.dart';
 import 'search_screen.dart';
 
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     // Replace with your actual pages
     QuoteScreen(),
     SearchScreen(),
-    Center(child: Text('Profile Page')),
+    ProfileScreen(),
   ];
 
   @override

@@ -26,9 +26,7 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: controller.isLoading.value
-                    ? Center(child: CircularProgressIndicator())
-                    : controller.isError.value
+                child : controller.isError.value
                         ? Center(child: Text('Error fetching quotes'))
                         : controller.filteredQuotes.isEmpty
                             ? Center(child: Text('No quotes found'))

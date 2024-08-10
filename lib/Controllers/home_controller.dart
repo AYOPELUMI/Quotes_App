@@ -4,8 +4,12 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:quote_app/Services/quote_service.dart';
 
+import 'search_controller.dart';
+
 class HomeController extends GetxController {
   final QuoteService _quoteService = Get.find<QuoteService>();
+  final Searchcontroller _controller = Get.find<Searchcontroller>();
+
   var quotes = <dynamic>[].obs;
   var isLoading = true.obs;
  var isError = false.obs; // Optional: Track if there's an error
@@ -42,6 +46,7 @@ class HomeController extends GetxController {
         if (!completer.isCompleted) {
           timer.cancel();
           quotes.value = data;
+          _controller.updateQuotes(data);
           completer.complete();
         }
       }).catchError((e) {

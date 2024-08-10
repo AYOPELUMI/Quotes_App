@@ -27,15 +27,18 @@ class _SignupScreenState extends State<SignupScreen> {
    bool isSwitchedValidated = true;
   String errorText = " ";
 
-  void _submit(){
+  void _submit () async{
     final isValid = _formKey.currentState?.validate();
 
     if(isValid!){
       setState(()=>errorText = " ");
       _SignupController.register();
+      print(" response are ${_SignupController.user.value}");
       if (_SignupController.user.value != null) {
         //  Get.toNamed('/home');
+            Future.delayed(Duration(seconds:2), (){
      Get.offAndToNamed(Routes.loginScreenRoute);
+    },);
 
        }
     //    _formKey.currentState?.save();

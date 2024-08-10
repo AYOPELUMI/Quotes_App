@@ -5,6 +5,7 @@ import 'package:quote_app/Routes/routes.dart';
 import 'Bindings/bindings.dart';
 import 'Screens/home_screen.dart';
 import 'Screens/login_screen.dart';
+import 'Screens/profile_screen.dart';
 import 'Screens/quote_screen.dart';
 import 'Screens/signup_screen.dart';
 
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
         GetPage(name: Routes.loginScreenRoute, page: () => const LoginScreen()),
         GetPage(name: Routes.homeScreenRoute, page: () => HomeScreen()),
         GetPage(name: Routes.signupScreenRoute, page: () => SignupScreen()),
-        GetPage(name: Routes.quoteScreenRoute, page: () => QuoteScreen())
+        GetPage(name: Routes.quoteScreenRoute, page: () => QuoteScreen()),
+        GetPage(name: Routes.profileScreenRoute, page: () => ProfileScreen())
+
       ],
     );
   }

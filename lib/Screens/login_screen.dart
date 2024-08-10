@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
    bool isSwitchedValidated = true;
   String errorText = " ";
 
-  void _submit(){
+  void _submit() async{
     final isValid = _formKey.currentState?.validate();
 
     if(isValid!){
@@ -35,10 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
       _LoginController.login();
       if (_LoginController.user.value != null) {
         //  Get.toNamed('/home');
+            Future.delayed(Duration(seconds:3), (){
      Get.toNamed(Routes.homeScreenRoute);
+    },);
 
        }
-     Get.toNamed(Routes.homeScreenRoute);
+     
 
     //    _formKey.currentState?.save();
       return;

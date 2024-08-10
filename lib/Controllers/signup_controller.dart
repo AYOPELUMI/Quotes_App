@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../Models/user_model.dart';
+import '../Routes/routes.dart';
 import '../Services/auth_services.dart';
 
 class SignupController extends GetxController {
@@ -30,6 +31,9 @@ class SignupController extends GetxController {
         isLoading.value = false;
         emailController.text="";
         passwordController.text="";
+        Future.delayed(Duration(seconds:2), (){
+     Get.offAndToNamed(Routes.loginScreenRoute);
+    },);
       }
       catch (e) {
         print("major error is  $e");

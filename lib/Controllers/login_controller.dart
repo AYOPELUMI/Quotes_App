@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../Models/user_model.dart';
+import '../Routes/routes.dart';
 import '../Services/auth_services.dart';
 
 class LoginController extends GetxController {
@@ -30,6 +31,10 @@ class LoginController extends GetxController {
         isLoading.value = false;
         emailController.text="";
         passwordController.text="";
+
+    Future.delayed(Duration(seconds:2), (){
+     Get.toNamed(Routes.homeScreenRoute);
+    },);
     }
     catch (e) {
       errorMessage.value = e.toString();
@@ -49,5 +54,6 @@ class LoginController extends GetxController {
   Future<void> logout() async {
     await _authService.logout();
     user.value = null;
+    Get.offAndToNamed(Routes.loginScreenRoute);
   }
 }
