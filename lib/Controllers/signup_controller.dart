@@ -6,14 +6,16 @@ import 'package:get/get.dart';
 import '../Models/user_model.dart';
 import '../Services/auth_services.dart';
 
-class AuthController extends GetxController {
+class SignupController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var user = Rx<UserModel?>(null);
   var errorMessage = ''.obs;
+  var isLoading = false.obs;
 
   Future<void> register() async {
+    isLoading.value = true;
       try{
         user.value = await _authService.registerWithEmailPassword(emailController.text, passwordController.text);
         Fluttertoast.showToast(
@@ -25,33 +27,22 @@ class AuthController extends GetxController {
         textColor: Colors.white,
         fontSize: 16.0,);
         errorMessage.value="";
-
+        isLoading.value = false;
       }
       catch (e) {
+        print("major error is  $e");
         errorMessage.value = e.toString();
-      }
-  }
-
-  Future<void> login() async {
-    try{       
-      user.value = await _authService.loginWithEmailPassword(emailController.text, passwordController.text);
-       Fluttertoast.showToast(
-        msg: 'login successfully',
+        isLoading.value = false;
+        Fluttertoast.showToast(
+        msg: 'error signing up',
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 5,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.red.shade800,
         textColor: Colors.white,
         fontSize: 16.0,);
-        errorMessage.value="";
-    }
-    catch (e) {
-      errorMessage.value = e.toString();
-    }
-  }
-
-  Future<void> logout() async {
-    await _authService.logout();
-    user.value = null;
+        isLoading.value = false;
+      }
+      update();
   }
 }
