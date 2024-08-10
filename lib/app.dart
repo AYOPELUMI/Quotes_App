@@ -8,6 +8,8 @@ import 'Screens/login_screen.dart';
 import 'Screens/profile_screen.dart';
 import 'Screens/quote_screen.dart';
 import 'Screens/signup_screen.dart';
+import 'Screens/splash_screen.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: MyBindings(),
-      home: const LoginScreen(),
+      home: SplashScreen(),
       getPages: [
         GetPage(name: Routes.loginScreenRoute, page: () => const LoginScreen()),
         GetPage(name: Routes.homeScreenRoute, page: () => HomeScreen()),

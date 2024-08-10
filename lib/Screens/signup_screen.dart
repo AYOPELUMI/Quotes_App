@@ -123,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                       validator:(value){
-                        if(value!.isEmpty || !RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%*&_-])[A-Za-z\d!@#$%*&_-]{8,24}$').hasMatch(value)){
+                        if(value!.isEmpty && !RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%*&_-])[A-Za-z\d!@#$%*&_-]{8,24}$').hasMatch(value)){
                           return "Password must be alphaNumeric with special characters";
                         }
                         return null;
