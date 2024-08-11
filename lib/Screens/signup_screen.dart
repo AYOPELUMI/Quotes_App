@@ -49,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
         child: GetBuilder<SignupController>(
           init: Get.find<SignupController>(),
           builder: (controller) => Container(
-            height:MediaQuery.of(context).size.height*0.8,
+            height:MediaQuery.of(context).size.height,
             color: Color(0xFFF3F3F3),
         padding: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0),
         child: Column(

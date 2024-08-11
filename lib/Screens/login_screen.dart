@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: GetBuilder<LoginController>(
           init: Get.find<LoginController>(),
           builder: (controller) => Container(
-            height:MediaQuery.of(context).size.height *0.8,
+            height:MediaQuery.of(context).size.height,
             color: Color(0xFFF3F3F3),
         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 00.0),
         child: Column(
