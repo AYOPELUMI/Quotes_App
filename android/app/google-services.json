@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "476601104627",
+    "project_id": "qoute-app-cc7ad",
+    "storage_bucket": "qoute-app-cc7ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476601104627:android:32ff5fddbd080957625f86",
+        "android_client_info": {
+          "package_name": "com.example.quote_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzf_EWg_ZOBIFmRmcMVgLG1Ktgdv7fkeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476601104627:android:45191d512069a914625f86",
+        "android_client_info": {
+          "package_name": "com.example.quoteapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzf_EWg_ZOBIFmRmcMVgLG1Ktgdv7fkeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
