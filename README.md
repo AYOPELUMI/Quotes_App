@@ -4,8 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-##login Details to test
-pelumipelumi23@gmail.com
+## login Details to test
+
+pelumipelumi23@gmail.com,
+
 Peludeji2014$
 
 This project is a starting point for a Flutter application.
