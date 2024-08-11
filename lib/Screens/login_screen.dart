@@ -128,8 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           validator:(value){
-                            if(value!.isEmpty || value.length <6){
-                              return "Password must be alphaNumeric with special characters";
+                           if( !RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%*&_-])[A-Za-z\d!@#$%*&_-]{8,24}$').hasMatch(value!)){
+                              return "Password must be alphanumeric with special characters";
                             }
                             return null;
                           }
